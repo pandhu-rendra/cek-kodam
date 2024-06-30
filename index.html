@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cek Kodam</title>
+
+    <!-- meta tag untuk SEO -->
+    <meta name="description" content="Cek Kodam adalah sebuah situs web interaktif yang dirancang untuk membantu Anda mendeteksi kodam atau entitas spiritual yang mungkin ada di sekitar Anda. Dengan hanya memasukkan nama Anda ke dalam kolom yang disediakan, sistem kami akan secara acak menentukan kodam yang sesuai dengan Anda dari daftar kodam yang telah kami sediakan.">
+    <meta name="keywords" content="cek kodam, pandhu armarendra, github, github pages">
+
+    <!-- open graph -->
+    <meta property="og:title" content="Pandhu Armarendra | Cek Kodam">
+    <meta property="og:description" content="Cek Kodam adalah sebuah situs web interaktif yang dirancang untuk membantu Anda mendeteksi kodam atau entitas spiritual yang mungkin ada di sekitar Anda. Dengan hanya memasukkan nama Anda ke dalam kolom yang disediakan, sistem kami akan secara acak menentukan kodam yang sesuai dengan Anda dari daftar kodam yang telah kami sediakan.">
+    <meta property="og:image" content="./aokigahara-forest-dark-style.jpg">
+    <meta property="og:url" content="https://pandhu-rendra.github.io">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Pandhu Armarendra | Cek Kodam">
+    <meta property="og:locale" content="id_ID">
+
+    <!-- Favicons -->
+    <link href="./aokigahara-forest-dark-style.jpg" rel="icon">
+    <link href="./aokigahara-forest-dark-style.jpg" rel="apple-touch-icon">
+
+    <!-- Css / Style-->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: url('./aokigahara-forest-dark-style.jpg') no-repeat center center fixed;
+            background-size: cover;
+            position: relative;
+        }
+        .blur-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Add a dark overlay */
+            filter: blur(5px);
+            z-index: 0;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            width: 300px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #result {
+            margin-top: 20px;
+            text-align: left;
+        }
+        p {
+            margin: 5px 0;
+            padding: 10px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+        }
+        .copyright {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="blur-overlay"></div>
+    <div class="container">
+        <h1>Cek Kodam</h1>
+        <input type="text" id="nameInput" placeholder="Masukkan nama">
+        <button onclick="detectKodam()">Cek Kodam</button>
+        <div id="result"></div>
+        <div class="copyright">
+            &copy; 2024 Pandhu Armarendra. All rights reserved.
+        </div>
+    </div>
+
+    <script>
+        const kodamList = [
+            "Cobra Sulawesi",
+            "Ular Jawa",
+            "Meja Blonde",
+            "Burung Merak",
+            "Gajah Gundul",
+            "Walang Sangit",
+            "Anakonda",
+            "Tikus Curut",
+            "Macan koreng",
+            "Ayam Suwir",
+            "Tikus Sawah",
+            "Bebek hitam",
+            "Kucing garong",
+            "Gajah Terbang",
+            "Pocong Hutan",
+            "Kuntilanak Tidur",
+            "Kuntilanak Laut",
+            "Genderuwo Gunung",
+            "Tuyul Emak",
+            "Wewe Gombel",
+            "Leak Bali",
+            "Sundel Bolong",
+            "Banaspati",
+            "Nyi Roro Kidul",
+            "Jelangkung Pasar",
+            "Kursi Majalengka",
+            "Suster Ngesot",
+            "Mbak Kunti",
+            "Demit Rumah Kosong",
+            "Hantu Jeruk Purut",
+            "Si Manis Jembatan Ancol",
+            "Buto Ijo",
+            "Nyai Blorong",
+            "Arwah Penasaran",
+            "Palasik",
+            "Kuyang",
+            "Ular Tangga",
+            "Siluman Harimau",
+            "Setan Televisi",
+            "Penunggu Rumah Tua",
+            "Mbah Sukri",
+            "Hantu Laut Utara",
+            "Kakek Cino",
+            "Kelabang Raksasa",
+            "Hantu Belanda",
+            "Lelebut Alas",
+            "Macan Kumbang",
+            "Hantu Jepang",
+            "Siluman Buaya",
+            "Si Boy",
+            "Siluman Serigala",
+            "Hantu Gundul",
+            "Arwah Tentara",
+            "Kuntilanak Kompor",
+            "Hantu Kendaraan",
+            "Leluhur Jombrang",
+            "Wesi Kuning",
+            "Hantu Luweng",
+            "Setan Alas",
+            "Bos Lama",
+            "Penunggu Kuburan",
+            "Arwah Gentayangan",
+            "Roh Tumbuhan",
+            "Sigit Rendang",
+            "Ambatron",
+            "Ambatukam",
+            "Mas Faiz",
+            "Laba-Laba Sunda",
+            "Pocong Selfie",
+            "Kuntilanak Ketawa",
+            "Genderuwo Ngopi",
+            "Tuyul Ngutil",
+            "Wewe Gombel TikTok",
+            "Leak Joget",
+            "Sundel Bolong Nongkrong",
+            "Banaspati Berkabut",
+            "Kosong" // Representing no kodam
+        ];
+
+        function getRandomKodam() {
+            const randomIndex = Math.floor(Math.random() * kodamList.length);
+            return kodamList[randomIndex];
+        }
+
+        function detectKodam() {
+            const name = document.getElementById('nameInput').value;
+            const kodam = getRandomKodam();
+            const resultDiv = document.getElementById('result');
+            const resultEntry = document.createElement('p');
+            resultEntry.textContent = `Nama: ${name}, Kodam: ${kodam}`;
+            resultDiv.appendChild(resultEntry);
+            document.getElementById('nameInput').value = ''; // Clear the input field
+        }
+    </script>
+</body>
+</html>
