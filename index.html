@@ -5,11 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pandhu Armarendra | Cek Khodam</title>
 
-    <!-- meta tag untuk SEO -->
+    <!-- Import Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Meta tag untuk SEO -->
     <meta name="description" content="Cek Khodam adalah sebuah situs web interaktif yang dirancang untuk membantu Anda mendeteksi khodam atau entitas spiritual yang mungkin ada di sekitar Anda. Dengan hanya memasukkan nama Anda ke dalam kolom yang disediakan, sistem kami akan secara acak menentukan kodam yang sesuai dengan Anda dari daftar khodam yang telah kami sediakan.">
     <meta name="keywords" content="cek kodam, pandhu armarendra, github, github pages">
 
-    <!-- open graph -->
+    <!-- Open graph -->
     <meta property="og:title" content="Pandhu Armarendra | Cek Khodam">
     <meta property="og:description" content="Cek Khodam adalah sebuah situs web interaktif yang dirancang untuk membantu Anda mendeteksi khodam atau entitas spiritual yang mungkin ada di sekitar Anda. Dengan hanya memasukkan nama Anda ke dalam kolom yang disediakan, sistem kami akan secara acak menentukan kodam yang sesuai dengan Anda dari daftar khodam yang telah kami sediakan.">
     <meta property="og:image" content="./aokigahara-forest-dark-style.jpg">
@@ -25,7 +31,7 @@
     <!-- Css / Style-->
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -57,6 +63,7 @@
         }
         h1 {
             margin-bottom: 20px;
+            font-family: 'Oswald', sans-serif;
         }
         input[type="text"] {
             width: calc(100% - 20px);
@@ -80,13 +87,15 @@
             font-size: 16px;
             cursor: pointer;
             transition: background-color 0.5s ease; /* Transisi warna background */
+            font-family: 'Oswald', sans-serif;
         }
         button:hover {
-            background-color: #0056b3;
+            background-color: #00FFFF;
         }
         #result {
             margin-top: 20px;
             text-align: left;
+            font-family: 'Poppins', sans-serif;
         }
         p {
             margin: 5px 0;
@@ -98,6 +107,7 @@
             margin-top: 20px;
             font-size: 12px;
             color: #888;
+            font-family: 'Poppins', sans-serif;
         }
     </style>
 </head>
@@ -286,7 +296,7 @@
         function detectKodam() {
             const name = document.getElementById('nameInput').value.trim();
             if (name === "") {
-                alert("Silakan masukkan nama.");
+                alert("Pandhu Armarendra | Cek Khodam\n\nSilakan masukkan nama.");
                 return; // Do not process if name is empty
             }
             if (cekButtonClicked) {
