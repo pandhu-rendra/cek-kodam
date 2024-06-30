@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
 
     <!-- Meta tag untuk SEO -->
     <meta name="description" content="Cek Khodam adalah sebuah situs web interaktif yang dirancang untuk membantu Anda mendeteksi khodam atau entitas spiritual yang mungkin ada di sekitar Anda. Dengan hanya memasukkan nama Anda ke dalam kolom yang disediakan, sistem kami akan secara acak menentukan kodam yang sesuai dengan Anda dari daftar khodam yang telah kami sediakan.">
@@ -56,10 +56,11 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            width: 300px;
             text-align: center;
             position: relative;
             z-index: 1;
+            width: auto; /* Remove fixed width */
+            max-width: 90%; /* Optional: to prevent it from getting too wide */
         }
         h1 {
             margin-bottom: 20px;
@@ -102,6 +103,7 @@
             padding: 10px;
             background-color: #e9ecef;
             border-radius: 4px;
+            word-wrap: break-word; /* Prevent overflow */
         }
         .copyright {
             margin-top: 20px;
@@ -223,40 +225,18 @@
             "Arwah Penasaran",
             "Hantu Muka Buruk",
             "Si Buta Dari Gua Hantu",
-            "Mak Lampir",
-            "Mbah Rojo",
-            "Sihir Taman Langit",
-            "Kuntilanak Cemburu",
-            "Hantu Penasaran",
-            "Tikus Gelisah",
-            "Kuntilanak Duduk",
-            "Kuntilanak Menangis",
-            "Hantu Jerit",
-            "Suster Kongkow",
-            "Nyai Roro",
-            "Sihir Taman Sari",
-            "Kuntilanak Menjerit",
-            "Nenek Kramat",
-            "Penunggu Bioskop",
-            "Hantu Seluler",
-            "Sihir Gunung Kidul",
-            "Arwah Penyiar",
-            "Si Jampang",
-            "Kuntilanak Tengah Malam",
-            "Maling Sialan",
-            "Hantu Ngebul",
-            "Si Buta Dari Gua Hantu",
-            "Mak Lampir",
-            "Mbah Rojo",
-            "Sihir Taman Langit",
-            "Kuntilanak Cemburu",
-            "Hantu Penasaran",
-            "Tikus Gelisah",
-            "Kuntilanak Duduk",
-            "Kuntilanak Menangis",
-            "Hantu Jerit",
-            "Suster Kongkow",
-            "Nyai Roro",
+            "Hantu Televisi",
+            "Hantu Temen",
+            "Hantu Minta Tumbal",
+            "Setan Karaoke",
+            "Mbah Gendu",
+            "Hantu Beranak",
+            "Nyi Tuntang",
+            "Penunggu Danau",
+            "Hantu Tambang",
+            "Si Bungkuk",
+            "Jin Air",
+            "Sosok Misterius",
             "Sihir Taman Sari",
             "Kuntilanak Menjerit",
             "Nenek Kramat",
@@ -312,6 +292,10 @@
             document.getElementById('cekButton').style.display = 'none';
             document.getElementById('ulangButton').style.display = 'inline-block';
             cekButtonClicked = true;
+
+            // Adjust container size based on content
+            const container = document.querySelector('.container');
+            container.style.width = 'auto'; // Automatically adjust to content
         }
 
         function resetForm() {
@@ -320,6 +304,10 @@
             document.getElementById('cekButton').style.display = 'inline-block';
             document.getElementById('ulangButton').style.display = 'none';
             cekButtonClicked = false; // Reset the flag
+
+            // Reset container size
+            const container = document.querySelector('.container');
+            container.style.width = 'auto';
         }
 
         // Add event listener for "Enter" key press
