@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pandhu Armarendra | Cek Kodam</title>
+    <title>Pandhu Armarendra | Cek Khodam</title>
 
     <!-- meta tag untuk SEO -->
-    <meta name="description" content="Cek Kodam adalah sebuah situs web interaktif yang dirancang untuk membantu Anda mendeteksi kodam atau entitas spiritual yang mungkin ada di sekitar Anda. Dengan hanya memasukkan nama Anda ke dalam kolom yang disediakan, sistem kami akan secara acak menentukan kodam yang sesuai dengan Anda dari daftar kodam yang telah kami sediakan.">
+    <meta name="description" content="Cek Khodam adalah sebuah situs web interaktif yang dirancang untuk membantu Anda mendeteksi khodam atau entitas spiritual yang mungkin ada di sekitar Anda. Dengan hanya memasukkan nama Anda ke dalam kolom yang disediakan, sistem kami akan secara acak menentukan kodam yang sesuai dengan Anda dari daftar khodam yang telah kami sediakan.">
     <meta name="keywords" content="cek kodam, pandhu armarendra, github, github pages">
 
     <!-- open graph -->
-    <meta property="og:title" content="Pandhu Armarendra | Cek Kodam">
-    <meta property="og:description" content="Cek Kodam adalah sebuah situs web interaktif yang dirancang untuk membantu Anda mendeteksi kodam atau entitas spiritual yang mungkin ada di sekitar Anda. Dengan hanya memasukkan nama Anda ke dalam kolom yang disediakan, sistem kami akan secara acak menentukan kodam yang sesuai dengan Anda dari daftar kodam yang telah kami sediakan.">
+    <meta property="og:title" content="Pandhu Armarendra | Cek Khodam">
+    <meta property="og:description" content="Cek Khodam adalah sebuah situs web interaktif yang dirancang untuk membantu Anda mendeteksi khodam atau entitas spiritual yang mungkin ada di sekitar Anda. Dengan hanya memasukkan nama Anda ke dalam kolom yang disediakan, sistem kami akan secara acak menentukan kodam yang sesuai dengan Anda dari daftar khodam yang telah kami sediakan.">
     <meta property="og:image" content="./aokigahara-forest-dark-style.jpg">
-    <meta property="og:url" content="https://pandhu-rendra.github.io">
+    <meta property="og:url" content="https://pandhu-rendra.github.io/cek-khodam">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Pandhu Armarendra | Cek Kodam">
+    <meta property="og:site_name" content="Pandhu Armarendra | Cek Khodam">
     <meta property="og:locale" content="id_ID">
 
     <!-- Favicons -->
@@ -98,9 +98,9 @@
 <body>
     <div class="blur-overlay"></div>
     <div class="container">
-        <h1>Cek Kodam</h1>
+        <h1>Cek Khodam</h1>
         <input type="text" id="nameInput" placeholder="Masukkan nama">
-        <button onclick="detectKodam()">Cek Kodam</button>
+        <button onclick="detectKodam()">Cek Khodam</button>
         <div id="result"></div>
         <div class="copyright">
             &copy; 2024 Pandhu Armarendra. All rights reserved.
@@ -198,7 +198,7 @@
             const kodam = getRandomKodam();
             const resultDiv = document.getElementById('result');
             const resultEntry = document.createElement('p');
-            resultEntry.textContent = `Nama: ${name}, Kodam: ${kodam}`;
+            resultEntry.textContent = `Nama: ${name}, Khodam: ${kodam}`;
             resultDiv.appendChild(resultEntry);
             document.getElementById('nameInput').value = ''; // Clear the input field
         }
