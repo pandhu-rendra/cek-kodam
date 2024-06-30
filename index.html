@@ -42,7 +42,7 @@
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.5); /* Add a dark overlay */
-            filter: blur(5px);
+            filter: blur(100px);
             z-index: 0;
         }
         .container {
@@ -65,8 +65,13 @@
             border: 1px solid #ccc;
             border-radius: 4px;
         }
+        .button-group {
+            display: flex;
+            justify-content: center; /* Mengatur agar tombol berada di tengah */
+            margin-bottom: 10px;
+        }
         button {
-            width: 100%;
+            width: 50%;
             padding: 10px;
             background-color: #007BFF;
             border: none;
@@ -74,6 +79,7 @@
             color: #fff;
             font-size: 16px;
             cursor: pointer;
+            transition: background-color 0.5s ease; /* Transisi warna background */
         }
         button:hover {
             background-color: #0056b3;
@@ -100,7 +106,10 @@
     <div class="container">
         <h1>Cek Khodam</h1>
         <input type="text" id="nameInput" placeholder="Masukkan nama">
-        <button onclick="detectKodam()">Cek Khodam</button>
+        <div class="button-group">
+            <button id="cekButton" onclick="detectKodam()">Cek Khodam</button>
+            <button id="ulangButton" onclick="resetForm()" style="display: none;">Ulangi</button>
+        </div>
         <div id="result"></div>
         <div class="copyright">
             &copy; 2024 Pandhu Armarendra. All rights reserved.
@@ -185,8 +194,89 @@
             "Leak Joget",
             "Sundel Bolong Nongkrong",
             "Banaspati Berkabut",
+            "Kuntilanak Kuda",
+            "Penghuni Rawa",
+            "Hantu Tol",
+            "Setan Dapur",
+            "Makhluk Halus",
+            "Siluman Kucing",
+            "Kuntilanak Sarang",
+            "Hantu Teman",
+            "Hantu Tetangga",
+            "Hantu Garasi",
+            "Kuntilanak Sosial Media",
+            "Nenek Kost",
+            "Kuntilanak Menangis",
+            "Begu Gombong",
+            "Tuyul Banyu",
+            "Siluman Kodok",
+            "Arwah Penasaran",
+            "Hantu Muka Buruk",
+            "Si Buta Dari Gua Hantu",
+            "Mak Lampir",
+            "Mbah Rojo",
+            "Sihir Taman Langit",
+            "Kuntilanak Cemburu",
+            "Hantu Penasaran",
+            "Tikus Gelisah",
+            "Kuntilanak Duduk",
+            "Kuntilanak Menangis",
+            "Hantu Jerit",
+            "Suster Kongkow",
+            "Nyai Roro",
+            "Sihir Taman Sari",
+            "Kuntilanak Menjerit",
+            "Nenek Kramat",
+            "Penunggu Bioskop",
+            "Hantu Seluler",
+            "Sihir Gunung Kidul",
+            "Arwah Penyiar",
+            "Si Jampang",
+            "Kuntilanak Tengah Malam",
+            "Maling Sialan",
+            "Hantu Ngebul",
+            "Si Buta Dari Gua Hantu",
+            "Mak Lampir",
+            "Mbah Rojo",
+            "Sihir Taman Langit",
+            "Kuntilanak Cemburu",
+            "Hantu Penasaran",
+            "Tikus Gelisah",
+            "Kuntilanak Duduk",
+            "Kuntilanak Menangis",
+            "Hantu Jerit",
+            "Suster Kongkow",
+            "Nyai Roro",
+            "Sihir Taman Sari",
+            "Kuntilanak Menjerit",
+            "Nenek Kramat",
+            "Penunggu Bioskop",
+            "Hantu Seluler",
+            "Sihir Gunung Kidul",
+            "Arwah Penyiar",
+            "Si Jampang",
+            "Kuntilanak Tengah Malam",
+            "Maling Sialan",
+            "Hantu Ngebul",
+            "Sihir Ketapel",
+            "Kuntilanak Bioskop",
+            "Arwah Kuntilanak",
+            "Si Manis Angker",
+            "Pocong Modern",
+            "Hantu Rumah",
+            "Sihir Menangis",
+            "Sihir Tangis",
+            "Hantu Setan",
+            "Sihir Dunia",
+            "Hantu Rupa",
+            "Kuntilanak Kemarahan",
+            "Sihir Teriak",
+            "Kuntilanak Mata",
+            "Hantu Bioskop",
             "Kosong" // Representing no kodam
         ];
+
+        let cekButtonClicked = false;
 
         function getRandomKodam() {
             const randomIndex = Math.floor(Math.random() * kodamList.length);
@@ -194,13 +284,32 @@
         }
 
         function detectKodam() {
-            const name = document.getElementById('nameInput').value;
+            const name = document.getElementById('nameInput').value.trim();
+            if (name === "") {
+                alert("Silakan masukkan nama.");
+                return; // Do not process if name is empty
+            }
+            if (cekButtonClicked) {
+                return; // Prevent multiple checks
+            }
             const kodam = getRandomKodam();
             const resultDiv = document.getElementById('result');
             const resultEntry = document.createElement('p');
             resultEntry.textContent = `Nama: ${name}, Khodam: ${kodam}`;
             resultDiv.appendChild(resultEntry);
-            document.getElementById('nameInput').value = ''; // Clear the input field
+
+            // Hide cek button and show ulang button
+            document.getElementById('cekButton').style.display = 'none';
+            document.getElementById('ulangButton').style.display = 'inline-block';
+            cekButtonClicked = true;
+        }
+
+        function resetForm() {
+            document.getElementById('nameInput').value = '';
+            document.getElementById('result').innerHTML = '';
+            document.getElementById('cekButton').style.display = 'inline-block';
+            document.getElementById('ulangButton').style.display = 'none';
+            cekButtonClicked = false; // Reset the flag
         }
 
         // Add event listener for "Enter" key press
